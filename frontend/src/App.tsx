@@ -6,10 +6,11 @@ const App =() => {
   const [data, setData] = useState(null);
 
   const getRequest = () => {
-    console.log("Button Clicked")
     fetch("http://localhost:8000/")
-      .then((response) => response.json())
-      .then((data) => setData(data));
+      .then(async (response) => response.json())
+      .then(({data}) => {
+        setData(data);
+      })
   }
 
   return (
